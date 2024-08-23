@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\faku_\\OneDrive\\Documentos\\GitHub\\tl2-tp1-2024-Facundot96\\ConsoleApp1\\TP1-TL2\\TP1-TL2.csproj",
+      "projectUniqueName": "C:\\Users\\faku_\\OneDrive\\Documentos\\GitHub\\tl2-tp1-2024-Facundot96\\TP1-TL2\\TP1-TL2.csproj",
       "projectName": "TP1-TL2",
-      "projectPath": "C:\\Users\\faku_\\OneDrive\\Documentos\\GitHub\\tl2-tp1-2024-Facundot96\\ConsoleApp1\\TP1-TL2\\TP1-TL2.csproj",
+      "projectPath": "C:\\Users\\faku_\\OneDrive\\Documentos\\GitHub\\tl2-tp1-2024-Facundot96\\TP1-TL2\\TP1-TL2.csproj",
       "packagesPath": "C:\\Users\\faku_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\faku_\\OneDrive\\Documentos\\GitHub\\tl2-tp1-2024-Facundot96\\ConsoleApp1\\TP1-TL2\\obj\\",
+      "outputPath": "C:\\Users\\faku_\\OneDrive\\Documentos\\GitHub\\tl2-tp1-2024-Facundot96\\TP1-TL2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\faku_\\AppData\\Roaming\\NuGet\\NuGet.Config"
