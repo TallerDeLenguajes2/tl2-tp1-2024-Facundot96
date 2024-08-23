@@ -1,4 +1,6 @@
-﻿## Ejercicio 2) a) Tipos de relaciones:
+﻿# TP1 - TL2 - 2024
+
+## Ejercicio 2) a) Tipos de relaciones:
 
 ### Por agregación:
 
