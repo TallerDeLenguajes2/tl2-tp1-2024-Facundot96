@@ -36,6 +36,4 @@
         get => reference;
         set => reference = value ?? throw new ArgumentNullException(nameof(value));
     }
-    
-    
 }

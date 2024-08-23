@@ -14,11 +14,27 @@
         this.status = status;
     }
 
-    public int OrderId => orderId;
+    public int OrderId
+    {
+        get => orderId;
+        set => orderId = value;
+    }
 
-    public string Reference => reference;
+    public string Reference
+    {
+        get => reference;
+        set => reference = value ?? throw new ArgumentNullException(nameof(value));
+    }
 
-    public Client Client => client;
+    public Client Client
+    {
+        get => client;
+        set => client = value ?? throw new ArgumentNullException(nameof(value));
+    }
 
-    public string Status => status;
+    public string Status
+    {
+        get => status;
+        set => status = value ?? throw new ArgumentNullException(nameof(value));
+    }
 }
