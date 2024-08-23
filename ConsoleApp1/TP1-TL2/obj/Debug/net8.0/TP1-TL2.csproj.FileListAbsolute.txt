@@ -1,0 +1,15 @@
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\bin\Debug\net8.0\TP1-TL2.exe
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\bin\Debug\net8.0\TP1-TL2.deps.json
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\bin\Debug\net8.0\TP1-TL2.runtimeconfig.json
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\bin\Debug\net8.0\TP1-TL2.dll
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\bin\Debug\net8.0\TP1-TL2.pdb
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\TP1-TL2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\TP1-TL2.AssemblyInfoInputs.cache
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\TP1-TL2.AssemblyInfo.cs
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\TP1-TL2.csproj.CoreCompileInputs.cache
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\TP1-TL2.sourcelink.json
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\TP1-TL2.dll
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\refint\TP1-TL2.dll
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\TP1-TL2.pdb
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\TP1-TL2.genruntimeconfig.cache
+C:\Users\faku_\OneDrive\Documentos\GitHub\tl2-tp1-2024-Facundot96\ConsoleApp1\TP1-TL2\obj\Debug\net8.0\ref\TP1-TL2.dll
