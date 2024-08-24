@@ -2,16 +2,20 @@
 {
     
     private int orderId;
-    private string reference;
+    private string detail;
     private Client client;
     private string status;
     
-    public Order(int orderId, string reference, Client client, string status)
+    public Order(int orderId, string detail, string status, string name, string address, string phone, string reference)
     {
         this.orderId = orderId;
-        this.reference = reference;
-        this.client = client;
+        this.detail = detail;
+        this.client = new Client(name, address, phone, reference);
         this.status = status;
+    }
+
+    public Order()
+    {
     }
 
     public int OrderId
@@ -22,8 +26,8 @@
 
     public string Reference
     {
-        get => reference;
-        set => reference = value ?? throw new ArgumentNullException(nameof(value));
+        get => detail;
+        set => detail = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public Client Client
@@ -37,4 +41,25 @@
         get => status;
         set => status = value ?? throw new ArgumentNullException(nameof(value));
     }
+
+    public void OrderDetails()
+    {
+        Console.WriteLine($"\nOrder nº: {this.orderId}");
+        Console.WriteLine($"\nReference: {this.detail}");
+        Console.WriteLine($"\nStatus: {this.status}");
+        Console.WriteLine($"\nClient name: {this.client.Name}");
+    }
+
+    public void ViewOrderAdress()
+    {
+        Console.WriteLine($"Client address: {this.client.Address}");
+        Console.WriteLine(this.client.Reference);
+    }
+
+    public void ViewClientDetails()
+    {
+        Console.WriteLine("Client Details:");
+        this.client.ClientDetails();
+    }
+    
 }

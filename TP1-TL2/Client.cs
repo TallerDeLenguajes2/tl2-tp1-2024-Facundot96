@@ -13,6 +13,10 @@
         this.reference = reference;
     }
 
+    public Client()
+    {
+    }
+
     public string Name
     {
         get => name;
@@ -36,4 +40,11 @@
         get => reference;
         set => reference = value ?? throw new ArgumentNullException(nameof(value));
     }
+
+    public void ClientDetails()
+    {
+        Console.WriteLine($"Name: {name}, Address: {address}, Phone: {phone}, Reference: {reference}");
+    }
+    
+    
 }
