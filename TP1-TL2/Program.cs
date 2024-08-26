@@ -1,9 +1,9 @@
 ﻿
 
-Delivery delivery = new Delivery("KDT TUCUMAN", "0381 430-3730");
+Delivery delivery = LoadDelivery();
 delivery.ShowDeliveryDetails();
 
-Messenger messenger1 = new Messenger(1, "Esclavo 1", "La Rioja 751", "+5493814658");
+/*Messenger messenger1 = new Messenger(1, "Esclavo 1", "La Rioja 751", "+5493814658");
 Messenger messenger2 = new Messenger(2, "Esclavo 2", "Jujuy 4000", "+549381848");
 Messenger messenger3 = new Messenger(3, "Esclavo 3", "Roca 4000", "+54938189487");
 Messenger messenger4 = new Messenger(4, "Esclavo 4", "Algún lugar", "+549381487875");
@@ -12,6 +12,9 @@ delivery.NewMessenger(messenger1);
 delivery.NewMessenger(messenger2);
 delivery.NewMessenger(messenger3);
 delivery.NewMessenger(messenger4);
+*/
+
+LoadMessengers(delivery);
 
 delivery.ShowAllMessengers();
 
@@ -35,4 +38,64 @@ delivery.RemoveMessenger(1);
 
 delivery.ShowAllMessengers();
 
+Delivery LoadDelivery()
+{
+    Console.WriteLine("Load delivery data---------");
 
+    string filePath = "Deliverycsv.csv";
+    
+    Console.WriteLine($"Ruta del archivo: {filePath}");
+
+    Delivery loadDelivery = new Delivery();
+
+    try
+    {
+        string[] lines = System.IO.File.ReadAllLines(filePath);
+
+        foreach (string line in lines)
+        {
+            string[] fields = line.Split(',');
+
+            string column = fields[0];
+            string column2 = fields[1];
+
+            loadDelivery = new Delivery(column, column2);
+        }
+
+    }
+    catch (IOException e)
+    {
+        Console.WriteLine($"error: {e.Message}");
+    }
+    
+    return loadDelivery;
+}
+
+void LoadMessengers(Delivery d)
+{
+    Console.WriteLine("Load messengers data---------");
+    
+    string filePath = "Messengerscsv.csv";
+
+    try
+    {
+        string[] lines = System.IO.File.ReadAllLines(filePath);
+
+        foreach (string line in lines)
+        {
+            string[] fields = line.Split(',');
+
+            string column = fields[0];
+            string column2 = fields[1];
+            string column3 = fields[2];
+            string column4 = fields[3];
+
+            Messenger messenger = new Messenger(int.Parse(column), column2, column3, column4);
+            d.NewMessenger(messenger);
+        }
+    }
+    catch (IOException e)
+    {
+        Console.WriteLine($"error: {e.Message}");
+    }
+}

@@ -1,21 +1,21 @@
 ﻿public class Messenger
 {
-    private int messengerId;
-    private string messengerName;
-    private string messengerAddress;
-    private string messengerPhone;
-    private List<Order> messengerOrders;
-    private int orderCount;
+    private int _messengerId;
+    private string _messengerName;
+    private string _messengerAddress;
+    private string _messengerPhone;
+    private List<Order> _messengerOrders;
+    private int _orderCount;
 
     
 
     public Messenger(int messengerId, string messengerName, string messengerAddress, string messengerPhone)
     {
-        this.messengerId = messengerId;
-        this.messengerName = messengerName;
-        this.messengerAddress = messengerAddress;
-        this.messengerPhone = messengerPhone;
-        messengerOrders = new List<Order>();
+        this._messengerId = messengerId;
+        this._messengerName = messengerName;
+        this._messengerAddress = messengerAddress;
+        this._messengerPhone = messengerPhone;
+        _messengerOrders = new List<Order>();
         OrderCount = 0;
     }
 
@@ -25,49 +25,49 @@
 
     public int OrderCount
     {
-        get => orderCount;
-        set => orderCount = value;
+        get => _orderCount;
+        set => _orderCount = value;
     }
 
     public int MessengerId
     {
-        get => messengerId;
-        set => messengerId = value;
+        get => _messengerId;
+        set => _messengerId = value;
     }
 
     public string MessengerName
     {
-        get => messengerName;
-        set => messengerName = value ?? throw new ArgumentNullException(nameof(value));
+        get => _messengerName;
+        set => _messengerName = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public string MessengerAddress
     {
-        get => messengerAddress;
-        set => messengerAddress = value ?? throw new ArgumentNullException(nameof(value));
+        get => _messengerAddress;
+        set => _messengerAddress = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public string MessengerPhone
     {
-        get => messengerPhone;
-        set => messengerPhone = value ?? throw new ArgumentNullException(nameof(value));
+        get => _messengerPhone;
+        set => _messengerPhone = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public List<Order> MessengerOrders
     {
-        get => messengerOrders;
-        set => messengerOrders = value ?? throw new ArgumentNullException(nameof(value));
+        get => _messengerOrders;
+        set => _messengerOrders = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public void Orders()
     {
-        if (this.messengerOrders.Any())
+        if (this._messengerOrders.Any())
         {
             Console.WriteLine($"\n------------------------");
-            Console.WriteLine($"| Messenger Id: {this.messengerId} |");
+            Console.WriteLine($"| Messenger Id: {this._messengerId} |");
         }
 
-        foreach (Order o in this.messengerOrders)
+        foreach (Order o in this._messengerOrders)
         {
             if (o != null)
             {
@@ -83,10 +83,10 @@
     public void ShowMessengerDetails()
     {
         Console.WriteLine($"\n-----------------------");
-        Console.WriteLine($"| Messenger Name: {this.messengerName}, Messenger Id: {this.messengerId} |");
-        Console.WriteLine($"| Messenger Address: {this.messengerAddress} |");
-        Console.WriteLine($"| Messenger Phone: {this.messengerPhone} |");
-        Console.WriteLine($"| Order Count: {this.messengerOrders.Count} |");
+        Console.WriteLine($"| Messenger Name: {this._messengerName}, Messenger Id: {this._messengerId} |");
+        Console.WriteLine($"| Messenger Address: {this._messengerAddress} |");
+        Console.WriteLine($"| Messenger Phone: {this._messengerPhone} |");
+        Console.WriteLine($"| Order Count: {this._messengerOrders.Count} |");
         Console.WriteLine($"-----------------------");
     }
 
@@ -97,14 +97,14 @@
 
     public void AssignOrder(Order order)
     {
-        this.messengerOrders.Add(order);
+        this._messengerOrders.Add(order);
     }
 
     public Order GetOrder(int orderId)
     {
         Order ord = new Order();
 
-        foreach (Order o in this.messengerOrders)
+        foreach (Order o in this._messengerOrders)
         {
             if (o.OrderId == orderId)
             {
@@ -118,7 +118,7 @@
     public void RemoveOrder(int orderId)
     {
         Order orderToRemove = null;
-        foreach (Order o in this.messengerOrders)
+        foreach (Order o in this._messengerOrders)
         {
             if (o.OrderId == orderId)
             {
@@ -129,19 +129,19 @@
 
         if (orderToRemove != null)
         {
-            messengerOrders.Remove(orderToRemove);
+            _messengerOrders.Remove(orderToRemove);
             Console.WriteLine("The order has been removed.");
         }
     }
 
     public void EndOrder(int orderId)
     {
-        foreach (Order o in this.messengerOrders)
+        foreach (Order o in this._messengerOrders)
         {
             if (o.OrderId == orderId)
             {
                 OrderCount++;
-                messengerOrders.Remove(o);
+                _messengerOrders.Remove(o);
                 Console.WriteLine("The order was successfully finished.");
             }
         }

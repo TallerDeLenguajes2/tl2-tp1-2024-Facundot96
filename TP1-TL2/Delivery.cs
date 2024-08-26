@@ -1,14 +1,14 @@
 ﻿public class Delivery
 {
-    private string deliveryName;
-    private string deliveryPhone;
-    private List<Messenger> messengers;
+    private string _deliveryName;
+    private string _deliveryPhone;
+    private List<Messenger> _messengers;
 
     public Delivery(string deliveryName, string deliveryPhone)
     {
-        this.deliveryName = deliveryName;
-        this.deliveryPhone = deliveryPhone;
-        messengers = new List<Messenger>();
+        this._deliveryName = deliveryName;
+        this._deliveryPhone = deliveryPhone;
+        _messengers = new List<Messenger>();
     }
 
     public Delivery()
@@ -17,30 +17,30 @@
 
     public string DeliveryName
     {
-        get => deliveryName;
-        set => deliveryName = value ?? throw new ArgumentNullException(nameof(value));
+        get => _deliveryName;
+        set => _deliveryName = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public string DeliveryPhone
     {
-        get => deliveryPhone;
-        set => deliveryPhone = value ?? throw new ArgumentNullException(nameof(value));
+        get => _deliveryPhone;
+        set => _deliveryPhone = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public List<Messenger> Messengers
     {
-        get => messengers;
-        set => messengers = value ?? throw new ArgumentNullException(nameof(value));
+        get => _messengers;
+        set => _messengers = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public void ShowDeliveryDetails()
     {
-        Console.WriteLine($"\nName: {deliveryName}\nPhone number: {deliveryPhone}");
+        Console.WriteLine($"\nName: {_deliveryName}\nPhone number: {_deliveryPhone}");
     }
 
     public void ShowAllMessengers()
     {
-        foreach (Messenger m in messengers)
+        foreach (Messenger m in _messengers)
         {
             m.ShowMessengerDetails();
         }
@@ -49,7 +49,7 @@
     public void EndOrder(int orderId)
     {
         // Buscar la orden y el mensajero correspondiente
-        foreach (Messenger messenger in messengers)
+        foreach (Messenger messenger in _messengers)
         {
             Order orderToEnd = messenger.MessengerOrders.FirstOrDefault(order => order.OrderId == orderId);
 
@@ -72,7 +72,7 @@
 
     public void PaymentByMessenger(int messengerId)
     {
-        foreach (Messenger m in messengers)
+        foreach (Messenger m in _messengers)
         {
             if (m.MessengerId == messengerId)
             {
@@ -86,7 +86,7 @@
     {
         int sum = 0;
 
-        foreach (Messenger m in messengers)
+        foreach (Messenger m in _messengers)
         {
             Console.WriteLine("\n----------------------------");
             Console.WriteLine($"Messenger ID: {m.MessengerId}");
@@ -100,7 +100,7 @@
 
     public void ShowMessengersOrders()
     {
-        foreach (Messenger m in messengers)
+        foreach (Messenger m in _messengers)
         {
             m.Orders();
         }
@@ -108,7 +108,7 @@
 
     public void ShowMessengerOrders(int messengerId)
     {
-        foreach (Messenger m in messengers)
+        foreach (Messenger m in _messengers)
         {
             if (m.MessengerId == messengerId)
             {
@@ -122,7 +122,7 @@
     {
         Order order = new Order(orderNum, detail, status, name, address, phone, reference);
 
-        foreach (Messenger m in messengers)
+        foreach (Messenger m in _messengers)
         {
             if (m.MessengerId == messengerId)
             {
@@ -138,7 +138,7 @@
         Order orderToReassign = null;
         Messenger currentMessenger = null;
 
-        foreach (Messenger messenger in messengers)
+        foreach (Messenger messenger in _messengers)
         {
             foreach (Order order in messenger.MessengerOrders)
             {
@@ -168,7 +168,7 @@
         currentMessenger.RemoveOrder(orderToReassign.OrderId);
 
         // Encontrar el nuevo mensajero y asignar la orden
-        Messenger newMessenger = messengers.FirstOrDefault(m => m.MessengerId == newMessengerId);
+        Messenger newMessenger = _messengers.FirstOrDefault(m => m.MessengerId == newMessengerId);
 
         if (newMessenger != null)
         {
@@ -185,7 +185,7 @@
 
     public void NewMessenger(Messenger newMessenger)
     {
-        messengers.Add(newMessenger);
+        _messengers.Add(newMessenger);
     }
 
     public void RemoveMessenger(int messengerId)
