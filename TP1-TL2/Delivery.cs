@@ -3,12 +3,14 @@
     private string _deliveryName;
     private string _deliveryPhone;
     private List<Messenger> _messengers;
+    private List<Order> _orders;
 
     public Delivery(string deliveryName, string deliveryPhone)
     {
         this._deliveryName = deliveryName;
         this._deliveryPhone = deliveryPhone;
         _messengers = new List<Messenger>();
+        _orders = new List<Order>();
     }
 
     public Delivery()

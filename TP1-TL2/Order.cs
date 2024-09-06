@@ -5,6 +5,8 @@
     private string _detail;
     private Client _client;
     private string _status;
+    private Messenger _messenger;
+    
     
     public Order(int orderId, string detail, string status, string name, string address, string phone, string reference)
     {
@@ -16,6 +18,11 @@
 
     public Order()
     {
+    }
+
+    public void AssingMessenger(Messenger messenger)
+    {
+        this._messenger = messenger;
     }
 
     public int OrderId
@@ -42,6 +49,17 @@
         set => _status = value ?? throw new ArgumentNullException(nameof(value));
     }
 
+    public int getMessengerId()
+    {
+        if (_messenger == null)
+        {
+            return -1;
+        }
+        else
+        {
+            return this._messenger.MessengerId;
+        }
+    }
     public void OrderDetails()
     {
         Console.WriteLine($"\nOrder nº: {this._orderId}");
