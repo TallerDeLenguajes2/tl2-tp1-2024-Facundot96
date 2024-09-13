@@ -28,3 +28,6 @@ D:\RiderProyects\TP1\tl2-tp1-2024-Facundot96\TP1-TL2\obj\Debug\net8.0\refint\TP1
 D:\RiderProyects\TP1\tl2-tp1-2024-Facundot96\TP1-TL2\obj\Debug\net8.0\TP1-TL2.pdb
 D:\RiderProyects\TP1\tl2-tp1-2024-Facundot96\TP1-TL2\obj\Debug\net8.0\TP1-TL2.genruntimeconfig.cache
 D:\RiderProyects\TP1\tl2-tp1-2024-Facundot96\TP1-TL2\obj\Debug\net8.0\ref\TP1-TL2.dll
+D:\RiderProyects\TP1\tl2-tp1-2024-Facundot96\TP1-TL2\bin\Debug\net8.0\Deliverycsv.csv
+D:\RiderProyects\TP1\tl2-tp1-2024-Facundot96\TP1-TL2\bin\Debug\net8.0\messengersjson.json
+D:\RiderProyects\TP1\tl2-tp1-2024-Facundot96\TP1-TL2\bin\Debug\net8.0\Deliveryjson.json

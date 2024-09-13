@@ -1,4 +1,6 @@
-﻿public class Delivery
+﻿
+
+public class Delivery
 {
     private string _deliveryName;
     private string _deliveryPhone;
@@ -15,6 +17,8 @@
 
     public Delivery()
     {
+        _messengers = new List<Messenger>();
+        _orders = new List<Order>();
     }
 
     public string DeliveryName
@@ -47,31 +51,39 @@
             m.ShowMessengerDetails();
         }
     }
-
-    public void EndOrder(int orderId)
+    
+    public void TakeOrder(int orderNum, string detail, string status, string name, string address, string phone,
+        string reference, int messengerId)
     {
-        // Buscar la orden y el mensajero correspondiente
-        foreach (Messenger messenger in _messengers)
+        Order order = new Order(orderNum, detail, status, name, address, phone, reference);
+
+        _orders.Add(order);
+    }
+
+    public void ShowAllOrders()
+    {
+        foreach (Order order in _orders)
         {
-            Order orderToEnd = messenger.MessengerOrders.FirstOrDefault(order => order.OrderId == orderId);
+            Console.WriteLine("----------------------------");
+            order.OrderDetails();
+        }
+    }
 
-            if (orderToEnd != null)
+    public Order ReturnOrder(int orderNum)
+    {
+        Order order = new Order();
+        foreach (Order o in _orders)
+        {
+            if (o.OrderId == orderNum)
             {
-                // Incrementar el orderCount del mensajero
-                messenger.OrderCount += 1;
-
-                // Eliminar la orden de la lista de órdenes del mensajero
-                messenger.MessengerOrders.Remove(orderToEnd);
-
-                Console.WriteLine($"Order {orderId} ended successfully. Messenger {messenger.MessengerId} now has {messenger.OrderCount} completed orders.");
-                return;
+                order = o;
             }
         }
 
-        // Si no se encuentra la orden
-        Console.WriteLine($"Order {orderId} not found.");
+        return order;
     }
-
+    
+    
     public void PaymentByMessenger(int messengerId)
     {
         foreach (Messenger m in _messengers)
@@ -99,7 +111,7 @@
         
         Console.WriteLine($"\nTotal profit: {sum}");
     }
-
+/*
     public void ShowMessengersOrders()
     {
         foreach (Messenger m in _messengers)
@@ -107,82 +119,64 @@
             m.Orders();
         }
     }
-
+*/
     public void ShowMessengerOrders(int messengerId)
     {
-        foreach (Messenger m in _messengers)
+        int flag = 0;
+        
+        Console.WriteLine("\n---------------------");
+        Console.WriteLine($"\nMessenger ID: {messengerId}");
+
+        foreach (Order o in _orders)
         {
-            if (m.MessengerId == messengerId)
+            if (o.getMessengerId() == messengerId)
             {
-                m.Orders();
+                o.OrderDetails();
+                flag = 1;
             }
         }
-    }
 
-    public void TakeOrder(int orderNum, string detail, string status, string name, string address, string phone,
-        string reference, int messengerId)
-    {
-        Order order = new Order(orderNum, detail, status, name, address, phone, reference);
-
-        foreach (Messenger m in _messengers)
+        if (flag == 0)
         {
-            if (m.MessengerId == messengerId)
-            {
-                m.AssignOrder(order);
-            }
+            Console.WriteLine("\n------------No orders found------------");
         }
+        
     }
 
-    
-    public void ReassignOrder(int orderId, int newMessengerId)
+    public void AssignMessengerToOrder(int orderNum, int messengerId)
     {
-        // Encontrar la orden y el mensajero actual
-        Order orderToReassign = null;
-        Messenger currentMessenger = null;
-
-        foreach (Messenger messenger in _messengers)
+        foreach (Order o in _orders)
         {
-            foreach (Order order in messenger.MessengerOrders)
+            if (o.OrderId == orderNum)
             {
-                if (order.OrderId == orderId)
+                foreach (Messenger m in _messengers)
                 {
-                    orderToReassign = order;
-                    currentMessenger = messenger;
-                    break;
+                    if (m.MessengerId == messengerId)
+                    {
+                        o.AssingMessenger(m);
+                        Console.WriteLine($"\nOrder Nº{orderNum} Assigned To Messenger: {messengerId}");
+                    }
                 }
             }
-        
-            // Si encontramos la orden, no necesitamos seguir buscando
-            if (orderToReassign != null)
+        }
+    }
+    
+    public void ReassignOrder(int orderId, int messengerId, int newMessengerId)
+    {
+        foreach (Order o in _orders)
+        {
+            if (o.getMessengerId()==messengerId)
             {
-                break;
+                foreach (Messenger m in _messengers)
+                {
+                    if (m.MessengerId == newMessengerId)
+                    {
+                        o.AssingMessenger(m);
+                    }
+                }
             }
         }
-
-        // Validar que encontramos la orden
-        if (orderToReassign == null || currentMessenger == null)
-        {
-            Console.WriteLine("Order or messenger not found.");
-            return;
-        }
-
-        // Eliminar la orden del mensajero actual
-        currentMessenger.RemoveOrder(orderToReassign.OrderId);
-
-        // Encontrar el nuevo mensajero y asignar la orden
-        Messenger newMessenger = _messengers.FirstOrDefault(m => m.MessengerId == newMessengerId);
-
-        if (newMessenger != null)
-        {
-            newMessenger.AssignOrder(orderToReassign);
-            Console.WriteLine("Order reassigned successfully.");
-        }
-        else
-        {
-            // Si no se encuentra el nuevo mensajero, devolver la orden al mensajero original
-            currentMessenger.AssignOrder(orderToReassign);
-            Console.WriteLine("New messenger not found. Order reassigned to the original messenger.");
-        }
+        Console.WriteLine($"\n Order Nº{orderId} Reassigned To Messenger: {newMessengerId}");
     }
 
     public void NewMessenger(Messenger newMessenger)
@@ -192,6 +186,7 @@
 
     public void RemoveMessenger(int messengerId)
     {
+        
         // Buscar el mensajero por su ID en la lista de mensajeros
         Messenger messengerToRemove = Messengers.FirstOrDefault(m => m.MessengerId == messengerId);
 
@@ -206,4 +201,48 @@
             Console.WriteLine($"Messenger Nº {messengerId} not found.");
         }
     }
+    public void EndOrder(int orderId)
+    {
+        var order = _orders.FirstOrDefault(o => o.OrderId == orderId);
+    
+        if (order != null)
+        {
+            
+            var messenger = _messengers.FirstOrDefault(m => m.MessengerId == order.getMessengerId());
+
+            
+            messenger?.IncreaseOrderCount();
+
+            
+            _orders.Remove(order);
+
+            
+            Console.WriteLine($"\nOrder Completed: {orderId} has been received.");
+        }
+        else
+        {
+            Console.WriteLine($"\nOrder not found: {orderId}");
+        }
+    }
+
+    public void DeleteOrderNotSent(int orderId)
+    {
+        var order = _orders.FirstOrDefault(o => o.OrderId == orderId);
+
+        if (order != null)
+        {
+            // Eliminar el pedido
+            _orders.Remove(order);
+        
+            // Confirmación de eliminación
+            Console.WriteLine("\nOrder removed from list.");
+        }
+        else
+        {
+            // En caso de que no exista el pedido
+            Console.WriteLine("\nOrder not found.");
+        }
+    }
+
 }
+

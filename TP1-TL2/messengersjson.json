@@ -1,0 +1,24 @@
+﻿[
+  {
+    "MessengerId": 1,
+    "MessengerName": "Esclavo 1",
+    "MessengerAddress": "La Rioja 751",
+    "MessengerPhone": "+5493814658",
+    "OrderCount": 0
+  },
+  {
+    "MessengerId": 2,
+    "MessengerName": "Esclavo 2",
+    "MessengerAddress": "Jujuy 4000",
+    "MessengerPhone": "+549381848",
+    "OrderCount": 0
+  },
+  {
+    "MessengerId": 3,
+    "MessengerName": "Esclavo 3",
+    "MessengerAddress": "Roca 4000",
+    "MessengerPhone": "+54938189487",
+    "OrderCount": 0
+  }
+]
+  
