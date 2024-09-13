@@ -41,10 +41,10 @@
         set => _reference = value ?? throw new ArgumentNullException(nameof(value));
     }
 
-    public void ClientDetails()
+   /* public void ClientDetails()
     {
         Console.WriteLine($"Name: {_name}, Address: {_address}, Phone: {_phone}, Reference: {_reference}");
-    }
+    }*/
     
     
 }

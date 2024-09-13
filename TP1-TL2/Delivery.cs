@@ -44,12 +44,13 @@ public class Delivery
         Console.WriteLine($"\nName: {_deliveryName}\nPhone number: {_deliveryPhone}");
     }
 
-    public void ShowAllMessengers()
+    public List<Messenger> ShowAllMessengers()
     {
-        foreach (Messenger m in _messengers)
+        /*foreach (Messenger m in _messengers)
         {
             m.ShowMessengerDetails();
-        }
+        }*/
+        return this._messengers;
     }
     
     public void TakeOrder(int orderNum, string detail, string status, string name, string address, string phone,
@@ -60,14 +61,14 @@ public class Delivery
         _orders.Add(order);
     }
 
-    public void ShowAllOrders()
+    /*public void ShowAllOrders()
     {
         foreach (Order order in _orders)
         {
             Console.WriteLine("----------------------------");
             order.OrderDetails();
         }
-    }
+    }*/
 
     public Order ReturnOrder(int orderNum)
     {
@@ -120,7 +121,7 @@ public class Delivery
         }
     }
 */
-    public void ShowMessengerOrders(int messengerId)
+    /*public void ShowMessengerOrders(int messengerId)
     {
         int flag = 0;
         
@@ -141,7 +142,7 @@ public class Delivery
             Console.WriteLine("\n------------No orders found------------");
         }
         
-    }
+    }*/
 
     public void AssignMessengerToOrder(int orderNum, int messengerId)
     {

@@ -51,7 +51,7 @@
         set => _messengerPhone = value ?? throw new ArgumentNullException(nameof(value));
     }
     
-    public void ShowMessengerDetails()
+    /*public void ShowMessengerDetails()
     {
         Console.WriteLine($"\n-----------------------");
         Console.WriteLine($"| Messenger Name: {this._messengerName}, Messenger Id: {this._messengerId} |");
@@ -59,7 +59,7 @@
         Console.WriteLine($"| Messenger Phone: {this._messengerPhone} |");
         Console.WriteLine($"| Order Count: {this.OrderCount} |");
         Console.WriteLine($"-----------------------");
-    }
+    }*/
 
     public int JournalPayment()
     {
@@ -71,74 +71,6 @@
         this.OrderCount++;
     }
 
-   /* public List<Order> MessengerOrders
-    {
-        get => _messengerOrders;
-        set => _messengerOrders = value ?? throw new ArgumentNullException(nameof(value));
-    }*/
-
-    /*public void Orders()
-    {
-        if (this._messengerOrders.Any())
-        {
-            Console.WriteLine($"\n------------------------");
-            Console.WriteLine($"| Messenger Id: {this._messengerId} |");
-        }
-
-        foreach (Order o in this._messengerOrders)
-        {
-            if (o != null)
-            {
-                o.OrderDetails();
-            }
-            else
-            {
-                Console.WriteLine("The Messenger has not been ordered yet.");
-            }
-        }
-    }*/
-
-    
-
-    /*public void AssignOrder(Order order)
-    {
-        this._messengerOrders.Add(order);
-    }
-
-    public Order GetOrder(int orderId)
-    {
-        Order ord = new Order();
-
-        foreach (Order o in this._messengerOrders)
-        {
-            if (o.OrderId == orderId)
-            {
-                ord = o;
-            }
-        }
-
-        return ord;
-    }
-
-    public void RemoveOrder(int orderId)
-    {
-        Order orderToRemove = null;
-        foreach (Order o in this._messengerOrders)
-        {
-            if (o.OrderId == orderId)
-            {
-                orderToRemove = o;
-                break; // salir del bucle después de encontrar la orden
-            }
-        }
-
-        if (orderToRemove != null)
-        {
-            _messengerOrders.Remove(orderToRemove);
-            Console.WriteLine("The order has been removed.");
-        }
-    }*/
-
-    
+   
 
 }

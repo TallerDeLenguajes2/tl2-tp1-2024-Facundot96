@@ -60,6 +60,7 @@
             return this._messenger.MessengerId;
         }
     }
+    /*
     public void OrderDetails()
     {
         Console.WriteLine($"\nOrder nº: {this._orderId}");
@@ -78,6 +79,6 @@
     {
         Console.WriteLine("Client Details:");
         this._client.ClientDetails();
-    }
+    }*/
     
 }
